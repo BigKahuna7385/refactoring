@@ -31,7 +31,6 @@ public class Rental {
                 if (getDaysRented() > 3)
                     thisAmount += (getDaysRented() - 3) * 1.5;
             }
-
         }
         return thisAmount;
     }

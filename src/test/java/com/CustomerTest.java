@@ -39,7 +39,6 @@ public class CustomerTest {
         testOutput = testOutput[2].split("\t");
         Assert.assertEquals(testMovieTitle, testOutput[1]);
         Assert.assertEquals(testDuration, Integer.parseInt(testOutput[3]));
-
     }
 
     @Test
@@ -95,6 +94,4 @@ public class CustomerTest {
         int frequentRenterPoints = Integer.parseInt(testOutput[2]);
         Assert.assertEquals(this.frequentRenterPointsTest, frequentRenterPoints);
     }
-
-
 }
