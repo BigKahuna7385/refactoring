@@ -1,3 +1,5 @@
+package com;
+
 import com.Customer;
 import com.Movie;
 import com.Rental;
