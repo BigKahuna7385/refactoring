@@ -1,7 +1,5 @@
 package com;
 
-import com.Movie;
-
 public class Rental {
     private final Movie movie;
     private final int daysRented;
@@ -28,11 +26,12 @@ public class Rental {
                     thisAmount += (getDaysRented() - 2) * 1.5;
             }
             case Movie.NEW_RELEASE -> thisAmount += getDaysRented() * 3;
-            case Movie.CHILDRENS -> {
+            default -> {
                 thisAmount += 1.5;
                 if (getDaysRented() > 3)
                     thisAmount += (getDaysRented() - 3) * 1.5;
             }
+
         }
         return thisAmount;
     }
