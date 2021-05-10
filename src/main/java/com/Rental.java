@@ -1,3 +1,7 @@
+package com;
+
+import com.Movie;
+
 public class Rental {
     private final Movie movie;
     private final int daysRented;
