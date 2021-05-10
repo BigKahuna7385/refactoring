@@ -29,7 +29,7 @@ class Customer {
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
         while (enum_rentals.hasMoreElements()) {
-            double thisAmount = 0;
+            double thisAmount;
             Rental each = enum_rentals.nextElement();
             //determine amounts for each line
             thisAmount = amountFor(each);
