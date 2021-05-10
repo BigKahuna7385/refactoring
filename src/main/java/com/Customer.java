@@ -25,18 +25,21 @@ public class Customer {
         totalAmount = 0;
         frequentRenterPoints = 0;
         Enumeration<Rental> enum_rentals = rentals.elements();
-        StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
-        result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
-
+        StringBuilder result = new StringBuilder();
         while (enum_rentals.hasMoreElements()) {
-            getTotalAmount(enum_rentals, result);
+            result.append(calculateTotalAmount(enum_rentals));
         }
-        result.append("Amount owed is ").append(totalAmount).append("\n");
-        result.append("You earned ").append(frequentRenterPoints).append(" frequent renter points");
-        return result.toString();
+        return createOutputString(result.toString());
     }
 
-    private void getTotalAmount(Enumeration<Rental> enum_rentals, StringBuilder result) {
+    private String createOutputString(String variableString) {
+        return "Rental Record for " + this.getName() + "\n" + "Title" + "\t" + "Days" + "\t" + "Amount" + "\n" +
+                variableString +
+                "Amount owed is " + totalAmount + "\n" +
+                "You earned " + frequentRenterPoints + " frequent renter points";
+    }
+
+    private String calculateTotalAmount(Enumeration<Rental> enum_rentals) {
         Rental each = enum_rentals.nextElement();
         //determine amounts for each line
         double thisAmount = each.amountFor();
@@ -45,8 +48,8 @@ public class Customer {
         // add bonus for a two day new release rental
         if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
             frequentRenterPoints++;
-        result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getDaysRented()).append("\t").append(thisAmount).append("\n");
         totalAmount += thisAmount;
+        return each.getMovie().getTitle() + "\t" + each.getDaysRented() + "\t" + thisAmount + "\n";
     }
 }
     

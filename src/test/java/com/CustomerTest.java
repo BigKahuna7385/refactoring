@@ -37,8 +37,8 @@ public class CustomerTest {
         customer.addRental(new Rental(testMovie, testDuration));
         String[] testOutput = customer.statement().split("\n");
         testOutput = testOutput[2].split("\t");
-        Assert.assertEquals(testMovieTitle, testOutput[1]);
-        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[3]));
+        Assert.assertEquals(testMovieTitle, testOutput[0]);
+        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[1]));
     }
 
     @Test
@@ -76,12 +76,12 @@ public class CustomerTest {
 
         String[] testOutputOriginal = customer.statement().split("\n");
         String[] testOutput = testOutputOriginal[2].split("\t");
-        Assert.assertEquals(tile1, testOutput[1]);
-        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[3]));
+        Assert.assertEquals(tile1, testOutput[0]);
+        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[1]));
 
         testOutput = testOutputOriginal[3].split("\t");
-        Assert.assertEquals(tile2, testOutput[1]);
-        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[3]));
+        Assert.assertEquals(tile2, testOutput[0]);
+        Assert.assertEquals(testDuration, Integer.parseInt(testOutput[1]));
 
     }
 
